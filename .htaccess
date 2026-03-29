@@ -1,0 +1,28 @@
+# .htaccess — AutoEscola Financeiro
+
+Options -Indexes
+Options -MultiViews
+
+# Forçar HTTPS (comentar em desenvolvimento local)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Proteger diretórios sensíveis
+<FilesMatch "\.(env|sql|log|md|sh|gitignore)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloquear acesso direto a config, models, controllers, middleware
+RewriteEngine On
+RewriteRule ^(config|models|controllers|middleware)/ - [F,L]
+
+# Cache para assets estáticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+</IfModule>
