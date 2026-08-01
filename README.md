@@ -1,4 +1,4 @@
-# AutoEscola Financeiro — MVP v1.0
+# AutoEscola Financeiro MVP
 
 Sistema SaaS de gestão financeira para escolas de condução.  
 ![PHP](https://img.shields.io/badge/PHP-MVC-777BB4?style=for-the-badge&logo=php&logoColor=white)
